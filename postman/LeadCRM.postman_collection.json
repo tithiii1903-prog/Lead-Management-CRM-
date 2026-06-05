@@ -1,0 +1,131 @@
+{
+  "info": {
+    "name": "LeadFlow CRM API",
+    "description": "REST API for Lead Management CRM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Get All Leads",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/leads?page=1&limit=10",
+          "host": ["{{base_url}}"],
+          "path": ["api", "leads"],
+          "query": [
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "10" },
+            { "key": "status", "value": "New", "disabled": true },
+            { "key": "search", "value": "john", "disabled": true },
+            { "key": "sortField", "value": "createdAt", "disabled": true },
+            { "key": "sortOrder", "value": "desc", "disabled": true }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Lead By ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/leads/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "leads", ":id"],
+          "variable": [{ "key": "id", "value": "LEAD_ID_HERE" }]
+        }
+      }
+    },
+    {
+      "name": "Create Lead",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{base_url}}/api/leads",
+          "host": ["{{base_url}}"],
+          "path": ["api", "leads"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phoneNumber\": \"+1-555-1234\",\n  \"companyName\": \"Acme Corp\",\n  \"leadStatus\": \"New\",\n  \"notes\": \"Met at conference\",\n  \"createdDate\": \"2024-06-01\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Update Lead",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{base_url}}/api/leads/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "leads", ":id"],
+          "variable": [{ "key": "id", "value": "LEAD_ID_HERE" }]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"leadStatus\": \"Qualified\",\n  \"notes\": \"Updated notes\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete Lead",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{base_url}}/api/leads/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "leads", ":id"],
+          "variable": [{ "key": "id", "value": "LEAD_ID_HERE" }]
+        }
+      }
+    },
+    {
+      "name": "Search Leads",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/leads?search=john&page=1&limit=10",
+          "host": ["{{base_url}}"],
+          "path": ["api", "leads"],
+          "query": [
+            { "key": "search", "value": "john" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Filter by Status",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/leads?status=Qualified&page=1&limit=10",
+          "host": ["{{base_url}}"],
+          "path": ["api", "leads"],
+          "query": [
+            { "key": "status", "value": "Qualified" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    }
+  ]
+}
