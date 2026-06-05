@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db';
@@ -19,7 +19,9 @@ app.use(
 
 app.use(express.json());
 
-app.get('/health', (_, res) => res.json({ status: 'ok' }));
+app.get('/health', (_req: Request, res: Response) => {
+  res.json({ status: 'ok' });
+});
 app.use('/api/leads', leadRoutes);
 
 app.use(errorHandler);

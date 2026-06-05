@@ -16,8 +16,8 @@ const schema = z.object({
   phoneNumber: z.string().min(1, 'Phone number is required'),
   companyName: z.string().min(1, 'Company name is required'),
   leadStatus: z.enum(['New', 'Contacted', 'Qualified', 'Converted', 'Lost']),
-  notes: z.string().optional().default(''),
-  createdDate: z.string().optional(),
+  notes: z.string(),
+  createdDate: z.string(),
 });
 
 type FormValues = z.infer<typeof schema>;

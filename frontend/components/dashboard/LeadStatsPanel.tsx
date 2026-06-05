@@ -190,24 +190,7 @@ export function LeadStatsPanel({ stats, recentLeads, isLoading }: LeadStatsPanel
         <div className="flex items-center justify-between mb-2">
           <h3 className="font-semibold" style={{ color: '#c5e8e4', fontSize: 16 }}>Lead trends</h3>
           <div className="flex items-center gap-1">
-            {(['month', 'year', 'all'] as const).map((t) => {
-              const label = t === 'month' ? 'This month' : t === 'year' ? 'This year' : 'All time';
-              const active = chartTab === t;
-              return (
-                <button key={t} onClick={() => setChartTab(t)}
-                  className="px-3 py-1.5 text-xs transition-all duration-150 rounded-md hover:bg-white/5"
-                  style={{
-                    color: active ? '#5bbfb5' : '#3a6e6a',
-                    borderBottom: active ? '2px solid #5bbfb5' : '2px solid transparent',
-                    borderRadius: '0',
-                    background: 'transparent',
-                    fontWeight: active ? 600 : 400,
-                  }}
-                >
-                  {label}
-                </button>
-              );
-            })}
+            
           </div>
         </div>
 
@@ -271,22 +254,6 @@ export function LeadStatsPanel({ stats, recentLeads, isLoading }: LeadStatsPanel
         <div className="flex items-center justify-between mb-6">
           <h3 className="font-semibold" style={{ color: '#c5e8e4', fontSize: 16 }}>Best leads so far</h3>
           <div className="flex items-center gap-1">
-            {(['week', 'last'] as const).map((t) => {
-              const active = leadsTab === t;
-              return (
-                <button key={t} onClick={() => setLeadsTab(t)}
-                  className="px-3 py-1.5 text-xs transition-all duration-150 rounded-md hover:bg-white/5"
-                  style={{
-                    color: active ? '#5bbfb5' : '#3a6e6a',
-                    borderBottom: active ? '2px solid #5bbfb5' : '2px solid transparent',
-                    background: 'transparent',
-                    fontWeight: active ? 600 : 400,
-                  }}
-                >
-                  {t === 'week' ? 'This week' : 'Last week'}
-                </button>
-              );
-            })}
           </div>
         </div>
 

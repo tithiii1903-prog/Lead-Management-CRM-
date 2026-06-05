@@ -8,14 +8,9 @@ interface SearchBarProps {
   placeholder?: string;
 }
 
-export function SearchBar({ value, onChange, placeholder = 'Search leads...' }: SearchBarProps) {
+export function SearchBar ({ value, onChange, placeholder = 'Search leads...' }: SearchBarProps) {
   return (
     <div className="relative flex-1 min-w-0">
-      <Search
-        size={16}
-        className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
-        style={{ color: '#3a6e6a' }}
-      />
       <input
         id="search-leads"
         type="text"
@@ -24,6 +19,7 @@ export function SearchBar({ value, onChange, placeholder = 'Search leads...' }: 
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
+      
       {value && (
         <button
           onClick={() => onChange('')}

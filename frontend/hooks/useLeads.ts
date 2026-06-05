@@ -26,7 +26,7 @@ export function useDeleteLead() {
 
 export function useDebounce<T>(value: T, delay: number): T {
   const [debounced, setDebounced] = useState(value);
-  const timer = useRef<ReturnType<typeof setTimeout>>();
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => {
     timer.current = setTimeout(() => setDebounced(value), delay);
