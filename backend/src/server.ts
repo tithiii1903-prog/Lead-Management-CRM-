@@ -38,14 +38,6 @@ app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok' });
 });
 
-app.get('/debug', (_req: Request, res: Response) => {
-  res.json({
-    frontendUrl,
-    allowedOrigins,
-    deployedAt: "2026-06-06T18:15:00Z"
-  });
-});
-
 app.use('/api/leads', leadRoutes);
 
 app.use(errorHandler);
