@@ -2,7 +2,8 @@
 
 A production-ready **Lead Management CRM** for small businesses. Built with a modern luxury glassmorphism design, full CRUD, server-side pagination, filtering, and search.
 
-![Dashboard Preview](./docs/preview.png)
+### Live working url 
+- https://lead-management-crm-awxt.vercel.app/
 
 ---
 
